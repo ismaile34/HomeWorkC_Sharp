@@ -1,4 +1,5 @@
-﻿//Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N с помощью рекурсии.
+﻿//Задайте значения M и N. Напишите программу, которая выведет все чётные натуральные числа в промежутке от M до N с помощью рекурсии.
+
 
 int Prompt(string message)
 {
@@ -8,13 +9,19 @@ int Prompt(string message)
     return result; // Возвращает результат функции
 }
 
-int SumNumbers(int M, int N)
+void SumNumbers(int M, int N)
 {
-    if (M%2==0) return M;
-    return M + SumNumbers(M + 1, N);
+    if (M <= N)
+    {
+        if (M <= N && M % 2 == 0)
+        {
+            System.Console.WriteLine($"{M}");
+        }
+        SumNumbers(M + 1, N);
+    }
 }
 
 int M = Prompt("Введите число M > ");
 int N = Prompt("Введите число N > ");
+System.Console.WriteLine($"Четные числа от {M} до {N}: ");
 SumNumbers(M, N);
-System.Console.WriteLine($"Сумма чисел от M до N = {SumNumbers(M, N)}");
